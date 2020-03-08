@@ -1,13 +1,12 @@
 from tkinter import *
 class main:
     def __init__(self):
-        t = Tk()
-        self.t = t
         self.fpage()
 
     def art_list(self):
         print("artist")
-        self.t.destroy()
+        t.destroy()
+        global a
         a = Tk()
         e = Entry(a)
         e.pack(side=TOP)
@@ -19,7 +18,7 @@ class main:
         c2 = Button(f2, text="Sonu Nigam", fg='black', width=12)
         c3 = Button(f1, text="Armaan Malik", fg='green', width=12)
         c4 = Button(f2, text="Shreya Ghoshal", fg='blue', width=12)
-        c5 = Button(f2, text="back", fg='black', width=12)
+        c5 = Button(f2, text="<-", fg='black', width=12,command = self.go_back)
         c5.pack()
         c1.pack(side=TOP)
         c2.pack(side=TOP)
@@ -29,7 +28,7 @@ class main:
 
     def song_list(self):
         print("song")
-        self.t.destroy()
+        t.destroy()
         a = Tk()
         e = Entry(a)
         e.pack(side=TOP)
@@ -49,7 +48,7 @@ class main:
 
     def alb_list(self):
         print("album")
-        self.t.destroy()
+        t.destroy()
         a = Tk()
         e = Entry(a)
         e.pack(side=TOP)
@@ -69,7 +68,7 @@ class main:
 
     def mood_list(self):
         print("mood")
-        self.t.destroy()
+        t.destroy()
         a = Tk()
         e = Entry(a)
         e.pack(side=TOP)
@@ -94,13 +93,17 @@ class main:
         c7.pack(side=BOTTOM)
         c8.pack(side=BOTTOM)
 
+    def go_back(self):
+        a.destroy()
+        self.fpage()
+
     def fpage(self):
-        self.t =Tk()
-        b1 = Button(self.t, text="Album", fg='red', width=10, height=10, command=self.alb_list)
-        b2 = Button(self.t, text="Song", fg='black', width=10, height=10, command=self.song_list)
-        b3 = Button(self.t, text="Mood", fg='green', width=10, height=10, command=self.mood_list)
-        b4 = Button(self.t, text="Artist", fg='blue', width=10, height=10, command=self.art_list)
-        #b5=Button(t,text="Playlist",fg='violet')
+        global t
+        t =Tk()
+        b1 = Button(t, text="Album", fg='red', width=10, height=10, command=self.alb_list)
+        b2 = Button(t, text="Song", fg='black', width=10, height=10, command=self.song_list)
+        b3 = Button(t, text="Mood", fg='green', width=10, height=10, command=self.mood_list)
+        b4 = Button(t, text="Artist", fg='blue', width=10, height=10, command=self.art_list)
 
         b1.grid(row=0, column=0)
         b2.grid(row=0, column=3)
@@ -108,6 +111,6 @@ class main:
         b4.grid(row=2, column=0)
         b3.grid(row=2, column=3)
 
-        self.t.mainloop()
+        t.mainloop()
 
 o = main()
