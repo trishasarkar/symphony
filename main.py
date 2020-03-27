@@ -1,6 +1,5 @@
 from tkinter import *
 
-
 class main:
     def __init__(self):
         self.fpage()
@@ -14,7 +13,7 @@ class main:
         b = Tk()
         b.title("                             MUSIC PLAYER")
         b.geometry('428x446')
-        r = PhotoImage(file=r"C:\Users\Acer\PycharmProjects\pldbmsrproj\background.png")
+        r = PhotoImage(file=r"background.png")
         l1 = Label(b, image=r)
         l1.place(x=0, y=0)
         l = Label(b, text='Song list', fg='black', bg='white', height=15, width=35)
@@ -52,7 +51,7 @@ class main:
         a = Tk()
         a.title("                             MUSIC PLAYER")
         a.geometry('428x446')
-        r = PhotoImage(file=r"C:\Users\Acer\PycharmProjects\pldbmsrproj\background.png")
+        r = PhotoImage(file=r"background.png")
         l = Label(a, image=r)
         l.place(x=0, y=0)
         e = Entry(a, width=50)
@@ -70,7 +69,6 @@ class main:
         c4 = Button(a, text="SHREYA GHOSHAL", font='Courier 16 bold', bg='white', fg='deep sky blue2', width=17, bd=1,
                     relief='ridge', height=2,
                     command=self.player1)
-
 
         c5 = Button(a, text="Back", font='Courier 12 bold', bg='white', fg='deep pink', width=12, bd=1, relief='ridge',
                     height=1,
@@ -102,7 +100,7 @@ class main:
         b = Tk()
         b.title("                             MUSIC PLAYER")
         b.geometry('428x446')
-        r = PhotoImage(file=r"C:\Users\Acer\PycharmProjects\pldbmsrproj\background.png")
+        r = PhotoImage(file=r"background.png")
         l1 = Label(b, image=r)
         l1.place(x=0, y=0)
         l = Label(b, text='Song list', fg='black', bg='white', height=15, width=35)
@@ -140,7 +138,7 @@ class main:
         a = Tk()
         a.title("                             MUSIC PLAYER")
         a.geometry('428x446')
-        r = PhotoImage(file=r"C:\Users\Acer\PycharmProjects\pldbmsrproj\background.png")
+        r = PhotoImage(file=r"background.png")
         l = Label(a, image=r)
         l.place(x=0, y=0)
         e = Entry(a, width=50)
@@ -185,7 +183,7 @@ class main:
         b = Tk()
         b.title("                             MUSIC PLAYER")
         b.geometry('428x446')
-        r = PhotoImage(file=r"C:\Users\Acer\PycharmProjects\pldbmsrproj\background.png")
+        r = PhotoImage(file=r"background.png")
         l1 = Label(b, image=r)
         l1.place(x=0, y=0)
         l = Label(b, text='Song list', fg='black', bg='white', height=15, width=35)
@@ -224,7 +222,7 @@ class main:
         a = Tk()
         a.title("                             MUSIC PLAYER")
         a.geometry('428x446')
-        r = PhotoImage(file=r"C:\Users\Acer\PycharmProjects\pldbmsrproj\background.png")
+        r = PhotoImage(file=r"background.png")
         l = Label(a, image=r)
         l.place(x=0, y=0)
         e = Entry(a, width=50)
@@ -269,7 +267,7 @@ class main:
         b = Tk()
         b.title("                             MUSIC PLAYER")
         b.geometry('428x446')
-        r = PhotoImage(file=r"C:\Users\Acer\PycharmProjects\pldbmsrproj\background.png")
+        r = PhotoImage(file=r"background.png")
         l1 = Label(b, image=r)
         l1.place(x=0, y=0)
         l = Label(b, text='Song list', fg='black', bg='white', height=15, width=35)
@@ -308,7 +306,7 @@ class main:
         a = Tk()
         a.title("                             MUSIC PLAYER")
         a.geometry('428x446')
-        r = PhotoImage(file=r"C:\Users\Acer\PycharmProjects\pldbmsrproj\background.png")
+        r = PhotoImage(file=r"background.png")
         l = Label(a, image=r)
         l.place(x=0, y=0)
         e = Entry(a, width=50)
@@ -358,7 +356,7 @@ class main:
         t = Tk()
         t.title("                             MUSIC PLAYER")
         t.geometry('428x446')
-        a = PhotoImage(file=r"C:\Users\Acer\PycharmProjects\pldbmsrproj\background.png")
+        a = PhotoImage(file=r"background.png")
         l = Label(t, image=a)
         l.place(x=0, y=0)
 
