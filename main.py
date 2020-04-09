@@ -1,6 +1,7 @@
 from tkinter import *
 import sqlite3
 import pygame
+import re
 
 connect = sqlite3.connect('emotionplayer.db')
 cursor = connect.cursor()
@@ -223,7 +224,7 @@ class main:
         r = PhotoImage(file=r"background.png")
         l = Label(a, image=r)
         l.place(x=0, y=0)
-        e = Entry(a, width=50)
+
         a.resizable(False, False)
         c1 = Button(a, text="ARIJIT SINGH", font='Courier 16 bold', bg='white', fg='red', width=17, bd=1,
                     relief='ridge', height=2,
@@ -243,7 +244,7 @@ class main:
                     command=self.go_back)
 
         c5.place(x=10, y=10)
-        e.place(x=10, y=60)
+
         c1.place(x=10, y=110)
         c2.place(x=10, y=190)
         c3.place(x=10, y=270)
@@ -606,7 +607,7 @@ class main:
         r = PhotoImage(file=r"background.png")
         l = Label(a, image=r)
         l.place(x=0, y=0)
-        e = Entry(a, width=50)
+
         a.resizable(False, False)
 
         c1 = Button(a, text="YJHD", font='Courier 16 bold', bg='white', fg='red', width=17, bd=1, relief='ridge',
@@ -622,7 +623,7 @@ class main:
                     height=1,
                     command=self.go_back)
         c5.place(x=10, y=10)
-        e.place(x=10, y=60)
+
         c1.place(x=10, y=110)
         c2.place(x=10, y=190)
         c3.place(x=10, y=270)
@@ -853,6 +854,108 @@ class main:
         t.destroy()
         self.emotion_list()
 
+    def song_list(self):
+        global a
+        a = Tk()
+        a.title("                             MUSIC PLAYER")
+        a.geometry('428x446')
+        r = PhotoImage(file=r"background.png")
+        l = Label(a, image=r)
+        l.place(x=0, y=0)
+        a.resizable(False, False)
+
+
+        f = Frame(a)
+        f1= Frame(a)
+        f2=Frame(a)
+        f3=Frame(a)
+        e = Entry(a)
+        l = ['Aasan Nahin Yahan', 'Angreji Beat', 'Aur Ho', 'Badtameez Dil', 'Balam Pichkari'
+            , 'Bhula Dena', 'Chahu Mei Ya Naa', 'Daaru Desi', 'Dar Lagi Lekin', 'Despacito'
+            , 'Dil Dhadakne Do', 'Dilliwaali Girlfriend', 'Ghagra', 'Hawaa Hawaa'
+            , 'Hum Mar Jayenge', 'Ik Junoon', 'Ik Junoon Remix', 'Ilahi', 'Ishq Wala Love'
+            , 'Jo Bhi Main', 'Kabira', 'Katiya Karun', 'Khaab', 'Khaabon Ke Parinday', 'Kukkad'
+            , 'Kun Faya Kun', 'Meri Aashiqui', 'Milne Hai Mujhse Aayi', 'Nadaan Parinde'
+            , 'Phir Se Ud Chala', 'Piya Aaye Na', 'Radha', 'Ratta Maar', 'Sadda Haq', 'Senorita Remix'
+            , 'Senorita', 'Shape of You', 'Sheher Mein', 'Sooraj ki Baahon Mein', 'Subhanallah'
+            , 'Sunn Raha Hai', 'Sunn Raha Hai Female Version', 'Tera Naam Japdi Phira'
+            , 'The Disco Song', 'Tum Hi Ho Bandhu', 'Tum Hi Ho', 'Vele', 'What Do You Mean'
+            , 'Yaariyan', 'High Heels', 'Dope Shope', 'Mi Gente', 'Yo x Ti Tu x Mi']
+
+        def select(evt):
+            value = str((lb.get(ACTIVE)))
+            print(value)
+
+        lb = Listbox(f, font=('times', 13))
+        lb.bind('<<ListboxSelect>>', select)
+        lb.pack(side=LEFT, fill=Y)
+
+        s = Scrollbar(f, orient='vertical')
+        s.config(command=lb.yview)
+        s.pack(side=RIGHT, fill=Y)
+
+        lb.config(yscrollcommand=s.set)
+        for items in l:
+            lb.insert(END, items)
+        l1=[]
+        def search():
+            x=e.get().lower()
+            for i in l:
+                if re.search(x,i.lower()):
+                    l1.append(i)
+            if l1!=[]:
+                lb.delete(0, 'end')
+                for items in l1:
+                    lb.insert(END, items)
+        c1 = Button(a, text="Pause", font='Courier 16 bold', bg='white', fg='red', width=8, bd=1, relief='ridge',
+                    height=2, command=self.pause)
+        c2 = Button(a, text="Play", font='Courier 16 bold', bg='white', fg='palevioletred2', width=8, bd=1,
+                    relief='ridge', height=2, command=self.play)
+        c4 = Button(a, text="Previous", font='Courier 16 bold', bg='white', fg='deep sky blue2', width=8, bd=1,
+                    relief='ridge', height=2, command=self.prev)
+        c6 = Button(a, text="Next", font='Courier 16 bold', bg='white', fg='green', width=8, bd=1,
+                    relief='ridge', height=2, command=self.next)
+
+        c5 = Button(f2, text="Back", font='Courier 12 bold', bg='white', fg='deep pink', width=6, bd=1,
+                    relief='ridge',height=1, command=self.song_back)
+
+        b=Button(a, text="Search", font='Courier 12 bold', bg='white', fg='deep pink', width=6, bd=1,
+                    relief='ridge',height=1,command=search)
+
+        c2.bind('<Button-1>')
+        c1.bind('<Button-1>')
+        c4.bind('<Button-1>')
+        c5.bind('<Button-1>')
+        #pygame.mixer.music.play()
+
+
+        c5.pack(side=LEFT,anchor=NW)
+        f2.pack(side=TOP,fill=X)
+        e.pack(fill=X,pady=10)
+        b.pack()
+        f.pack(pady=10,padx=30,anchor=N)
+        c4.pack(side=LEFT)
+        c2.pack(side=LEFT)
+        c1.pack(side=LEFT)
+        c6.pack(side=LEFT)
+
+       # f1.pack(side=BOTTOM)
+        a.mainloop()
+
+
+    def play_list(self):
+        pass
+    def song_back(self):
+        pass
+    def song_call(self):
+        t.destroy()
+        self.song_list()
+    def play_back(self):
+        pass
+    def play_call(self):
+        t.destroy()
+        self.play_list()
+
     ##############
 
     def go_back(self):
@@ -870,22 +973,30 @@ class main:
 
         t.resizable(False, False)
         b1 = Button(t, text="ALBUM", font='Courier 22 bold', bg='white', fg='pale violet red', width=8, bd=1,
-                    relief='ridge', height=5,
+                    relief='ridge', height=3,
                     command=self.alb_call)
-        b2 = Button(t, text="LANGUAGE", font='Courier 22 bold', bg='white', fg='steelblue4', width=8, height=5, bd=1,
+        b2 = Button(t, text="LANGUAGE", font='Courier 22 bold', bg='white', fg='steelblue4', width=8, height=3, bd=1,
                     relief='ridge',
                     command=self.language_call)
-        b3 = Button(t, text="MOOD", font='Courier 22 bold', bg='white', fg='sky blue2', width=8, height=5, bd=1,
+        b3 = Button(t, text="MOOD", font='Courier 22 bold', bg='white', fg='sky blue2', width=8, height=3, bd=1,
                     relief='ridge',
                     command=self.emotion_call)
-        b4 = Button(t, text="ARTIST", font='Courier 22 bold', bg='white', fg='indian red2', width=8, height=5, bd=1,
+        b4 = Button(t, text="ARTIST", font='Courier 22 bold', bg='white', fg='indian red2', width=8, height=3, bd=1,
                     relief='ridge',
                     command=self.art_call)
+        b5= Button(t, text="SONG", font='Courier 22 bold', bg='white', fg='green', width=8, height=3, bd=1,
+                    relief='ridge',
+                    command=self.song_call)
+        b6 = Button(t, text="PLAYLIST", font='Courier 22 bold', bg='white', fg='deep pink', width=8, height=3, bd=1,
+                    relief='ridge',
+                    command=self.play_call)
 
         b1.place(x=10, y=10)
         b2.place(x=160, y=10)
-        b4.place(x=10, y=230)
-        b3.place(x=160, y=230)
+        b4.place(x=10, y=150)
+        b3.place(x=160, y=150)
+        b5.place(x=10, y=290)
+        b6.place(x=160, y=290)
 
         t.mainloop()
 
