@@ -10,6 +10,7 @@ Music is known to be therapeutic. This project was based on the desire to have o
 This is an example of how to list things you need to use the software and how to install them.
 * [DB Browser for SQLite3](https://sqlitebrowser.org/dl/)
 * [SQLite3](https://www.sqlite.org/download.html)
+* Pycharm/IDLE
 
 ### Installation
 
