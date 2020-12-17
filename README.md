@@ -1,2 +1,28 @@
-# music_player_tkinter_dbms
-Music player using python gui as front end and sqlite3 (rdbms) as backend
+# GUI based Music Player 
+
+Music is known to be therapeutic. This project was based on the desire to have our own therapy-kit a.k.a a music player. This is a basic music player that was created on our local machine using python GUI as front end and SQLite3 as backend. It has play, pause, next, repeat functionalities.
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+### Prerequisites
+
+This is an example of how to list things you need to use the software and how to install them.
+* [DB Browser for SQLite3](https://sqlitebrowser.org/dl/)
+* [SQLite3](https://www.sqlite.org/download.html)
+
+### Installation
+
+Run the following commands from command line:
+* tkinter
+   ```sh
+   pip install tkinter
+   ```
+* pygame
+   ```sh
+   pip install pygame
+   ```
+* regex
+   ```sh
+   pip install regex
+   ```
